@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budget Management System</title>
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- Link for poppins font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1 class="intro-header" style="display: block; text-align: center">BUDGET MANAGEMENT SYSTEM</h1>
+
+    <br />
+
+    <div style="display: flex; justify-content: center; align-items: center">
+      <button type="button" id="startBtn">Start Management</button>
+    </div>
+
+    <!--First dialog to start  -->
+    <dialog id="startDialog">
+      <h1 style="display: block; text-align: center; color: #76ABAE;">INCOME</h1>
+
+        <div class="formWrapper">
+            <form id="startDialogForm">
+                <label id="startDialogLabel" for="fname">Enter your First name</label><br>
+                <input type="text" name="fname" /><br>
+        
+                <label id="startDialogLabel" for="lname">Enter your Last name </label><br>
+                <input type="text" name="lname" /><br>
+        
+                <label id="startDialogLabel" for="income">Main income (This month)</label><br>
+                <input name="income" type="number" /><br>
+              </form>
+
+
+              
+        </div>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+        "
+      >
+        <button type="button" id="addIncomeSource">Add</button>
+      </div>
+      <br />
+
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+        "
+      >
+        <button type="button" id="cancelInfoSubmit">Cancel</button>
+        <button type="button" id="infoSubmit">Submit</button>
+      </div>
+    </dialog>
+
+    <dialog id="addNewIncomeSourceDialog">
+        <h1 style="display: block; text-align: center; color: #76ABAE;">Add new Source of Income</h1>
+        <div class="formWrapper">
+            <form >
+                <label for="newIncomeName">Enter other income source</label><br />
+                <input type="text" name="newIncomeName" id="newIncomeLabel" /><br />
+          
+                <label for="newIncomeAmount">Enter amount from this source</label><br />
+                <input type="number" name="newIncomeAmount" id="newIncomeAmount" /><br />
+             </form>
+        </div>
+
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+        "
+      >
+        <button type="button" id="addOtherIncomeSource">Add</button>
+      </div>
+    </dialog>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

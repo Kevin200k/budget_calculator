@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    background-color: #222831;
+}
+.intro-header{
+    font-size: 60px;
+    font-weight: bolder;
+    color: #EEEEEE;
+    margin-top: 120px;
+}
+#startBtn{
+    background-color: #76ABAE;
+    border: none;
+    outline: none;
+    color: #EEEEEE;
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 10px;
+
+}
+.formWrapper{
+    width: 100%;
+    height: fit-content;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#startDialog{
+    width: 500px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 20px;
+    background-color: #31363F;
+    border-radius: 24px;
+    border: none;
+}
+#startDialog::backdrop{
+    backdrop-filter: blur(3px);
+}
+
+#startDialogLabel{
+    margin-top: 10px !important;
+    color: #76ABAE;
+    font-weight: bolder;
+    
+}
+#startDialog input{
+    width: 400px;
+    height: 30px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    padding: 8px;
+}
+
+#addNewIncomeSourceDialog{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+#addIncomeSource{
+    background-color: #76ABAE;
+    border: none;
+    outline: none;
+    color: #EEEEEE;
+    width: 100px;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+#cancelInfoSubmit{
+    background-color: #C83F49;
+    border: none;
+    outline: none;
+    color: #EEEEEE;
+    width: 100px;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-weight: bolder;
+    font-size: 15px;
+}
+#infoSubmit{
+    background-color: #76ABAE;
+    border: none;
+    outline: none;
+    color: #EEEEEE;
+    width: 100px;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-weight: bolder;
+    font-size: 15px;
+}
+#addNewIncomeSourceDialog{
+    padding: 20px;
+    background-color: #31363F;
+    border-radius: 24px;
+    border: none;
+}
+
+#addNewIncomeSourceDialog label{
+    margin-top: 10px !important;
+    color: #76ABAE;
+    font-weight: bolder;
+}
+
+#addNewIncomeSourceDialog input{
+    width: 400px;
+    height: 30px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    padding: 8px;
+}
+#addNewIncomeSourceDialog::backdrop{
+    backdrop-filter: blur(3px);
+}
+#addOtherIncomeSource{
+    background-color: #76ABAE;
+    border: none;
+    outline: none;
+    color: #EEEEEE;
+    width: 100px;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-weight: bolder;
+    font-size: 15px;
+}
