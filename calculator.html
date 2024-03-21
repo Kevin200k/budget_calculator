@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Calculator</title>
+    <style>
+        /* Add your CSS styling here */
+    </style>
+</head>
+<body>
+    <h2>Budget Calculator</h2>
+    <form id="budgetForm">
+        <label for="income">Income:</label>
+        <input type="number" id="income" name="income" placeholder="Enter your income" required>
+        
+        <h3>Expenses</h3>
+        <div id="expensesContainer">
+            <!-- JavaScript will dynamically add expense fields -->
+        </div>
+        <button type="button" onclick="addExpenseField()">Add Expense</button>
+        
+        <h3>Savings and Investments</h3>
+        <label for="savings">Savings:</label>
+        <input type="number" id="savings" name="savings" placeholder="Enter your savings">
+        
+        <h3>Debts</h3>
+        <div id="debtsContainer">
+            <!-- JavaScript will dynamically add debt fields -->
+        </div>
+        <button type="button" onclick="addDebtField()">Add Debt</button>
+        
+        <h3>Taxes</h3>
+        <label for="incomeTax">Income Tax:</label>
+        <input type="number" id="incomeTax" name="incomeTax" placeholder="Enter your income tax">
+        <!-- Add other tax fields as needed -->
+        
+        <h3>Other Financial Goals</h3>
+        <!-- Add fields for emergency fund, retirement planning, education funding, etc. -->
+        
+        <button type="submit">Calculate Budget</button>
+    </form>
+
+    <script>
+        // JavaScript functions to dynamically add expense and debt fields
+        function addExpenseField() {
+            var expensesContainer = document.getElementById('expensesContainer');
+            var input = document.createElement('input');
+            input.type = 'number';
+            input.name = 'expense';
+            input.placeholder = 'Enter expense';
+            expensesContainer.appendChild(input);
+            expensesContainer.appendChild(document.createElement('br'));
+        }
+
+        function addDebtField() {
+            var debtsContainer = document.getElementById('debtsContainer');
+            var input = document.createElement('input');
+            input.type = 'number';
+            input.name = 'debt';
+            input.placeholder = 'Enter debt';
+            debtsContainer.appendChild(input);
+            debtsContainer.appendChild(document.createElement('br'));
+        }
+    </script>
+</body>
+</html>
