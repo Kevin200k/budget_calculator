@@ -40,28 +40,5 @@
         
         <button type="submit">Calculate Budget</button>
     </form>
-
-    <script>
-        // JavaScript functions to dynamically add expense and debt fields
-        function addExpenseField() {
-            var expensesContainer = document.getElementById('expensesContainer');
-            var input = document.createElement('input');
-            input.type = 'number';
-            input.name = 'expense';
-            input.placeholder = 'Enter expense';
-            expensesContainer.appendChild(input);
-            expensesContainer.appendChild(document.createElement('br'));
-        }
-
-        function addDebtField() {
-            var debtsContainer = document.getElementById('debtsContainer');
-            var input = document.createElement('input');
-            input.type = 'number';
-            input.name = 'debt';
-            input.placeholder = 'Enter debt';
-            debtsContainer.appendChild(input);
-            debtsContainer.appendChild(document.createElement('br'));
-        }
-    </script>
 </body>
 </html>
