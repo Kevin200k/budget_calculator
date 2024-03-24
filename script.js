@@ -261,6 +261,9 @@ function calculation(){
         totalExpenseValue += +(totalExpense[i].value);
     }
 
+    totalExpense.forEach(function(field){
+        field.disabled = true;
+    })
     netIncome = totalFunds - totalExpenseValue;
 
     netIncomeMessage.textContent = `Your Net income is: $${netIncome}`;
