@@ -56,7 +56,6 @@ function addIncomeToList() {
     newIncomeAmountNumber.value = newIncomeAmount.value;
     let breakTag1 = document.createElement('br');
     let breakTag2 = document.createElement('br');
-
     startDialogForm.appendChild(newIncomeLabel);
     startDialogForm.appendChild(breakTag1);
     startDialogForm.appendChild(newIncomeAmountNumber);
@@ -208,7 +207,8 @@ function addExpenseToList() {
     let newExpenseInput = document.createElement('input');
     newExpenselabel.setAttribute('class', 'expenseFormLabel');
     newExpenseInput.setAttribute('class', 'ExpenseValue');
-    newExpenseInput.type = 'number'
+    newExpenseInput.type = 'number';
+    newExpenseInput.placeholder = 'Enter amount...';
     newExpenselabel.textContent = `${labelDisplay}`
     console.log(newExpenseNameInput.value)
     
