@@ -6,6 +6,8 @@
     <title>Budget Management System</title>
     <!-- Link to css file -->
     <link rel="stylesheet" href="./style.css" />
+    <!-- Link to responsive css file -->
+    <link rel="stylesheet" href="./responsiveness.css">
 
     <!-- Link for poppins font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,7 +34,7 @@
     </h1>
 
     <!-- I put the button in a block level element (div) so i can be able to place the button in the center of that line in he page -->
-    <div style="display: flex; justify-content: center; align-items: center">
+    <div style="display: flex; justify-content: center; align-items: center;">
       <button onclick="showStartDialog()" type="button" id="startBtn">
         Start Management
       </button>
@@ -58,7 +60,7 @@
           <label id="startDialogLabel" for="income"
             >Main income (This month)</label
           ><br />
-          <input class="incomeValueField" name="income" type="number" required/><br />
+          <input class="incomeValueField" name="income" type="number" inputmode="numeric" required/><br />
         </form>
       </div>
 
@@ -146,7 +148,13 @@
     <main id="main-section" style="display: none">
       <nav><h1>BUDGET DETAILS</h1></nav>
 
-      <div id="welcomeMessage"></div>
+      <div id="welcomeMessage"></div><br>
+      <div class="fundCardWrapper">
+        <div class="fundCard">
+          <h2>Total Income</h2>
+          <div class="totalFundArea"></div>
+        </div>
+      </div>
 
       <div class="dashboard-mainFlex-container">
         <div class="dashboard-left">
@@ -207,19 +215,14 @@
         
         
         <div class="dashboard-right">
-          <div class="fundCardWrapper">
-            <div class="fundCard">
-              <h2>Total Income</h2>
-              <div class="totalFundArea"></div>
-            </div>
-          </div>
+         
           <br>
           <!-- Container to display chart and error message if expense is more than funds -->
           <div class="chart-container">
             <canvas class="my-chart"></canvas>
           </div>
 
-          <div class="netIncomeMessage"></div>
+          <div class="netIncomeMessage"></div><br><br>
 
         </div>
       </div>
