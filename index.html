@@ -1,19 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <label for="fullname">Enter your Name:</label><br>
-    <input name="fullname" type="text"><br>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budget Management System</title>
+    <!-- Link to css file -->
+    <link rel="stylesheet" href="./style.css" />
+    <!-- Link to responsive css file -->
+    <link rel="stylesheet" href="./responsiveness.css">
 
-    <label for="income">Income (This month)</label><br>
-    <input name="income" type="number"><br>
+    <!-- Link for poppins font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
 
-    <button type="button">Calculate</button>
+    <!-- Link to ultra static font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ultra&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+    
+
+    <!-- The header that says Budget Managment system -->
+    <h1 class="intro-header" style="display: block; text-align: center">
+      BUDGET MANAGEMENT SYSTEM
+    </h1>
+
+    <!-- I put the button in a block level element (div) so i can be able to place the button in the center of that line in he page -->
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <button onclick="showStartDialog()" type="button" id="startBtn">
+        Start Management
+      </button>
+    </div>
+
+    <!--First dialog to start  -->
+    <!--This is the first dialog box that appears when you click on the start Management button  -->
+    <dialog id="startDialog">
+      <h1 style="display: block; text-align: center; color: #EEEEEE">INCOME</h1>
+
+      <div class="formWrapper">
+        <form id="startDialogForm">
+          <label id="startDialogLabel" for="fname">Enter your First name</label
+          ><br />
+          <input id="fname" type="text" name="fname" required/><br />
+          <p class="fname-warn"></p><br>
+
+          <label id="startDialogLabel" for="lname">Enter your Last name </label
+          ><br />
+          <input type="text" name="lname" id="lname" required/><br />
+          <p class="lname-warn"></p><br>
+
+          <label id="startDialogLabel" for="income"
+            >Main income (This month)</label
+          ><br />
+          <input class="incomeValueField" name="income" type="number" inputmode="numeric" required/><br />
+        </form>
+      </div>
+
+      <!-- i put the add, submit and cancel button in a div -->
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+        "
+      >
+      <!-- When the add button is clicked, a new dialog box is to appear, giving you the chance to add other sources of income for the month -->
+        <button
+          onclick="shownewIncomeSourceDialog()"
+          type="button"
+          id="addIncomeSource"
+        >
+          Add
+        </button>
+      </div>
+      <br />
+
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+        "
+      >
+        <button
+          onclick="closeStartDialog()"
+          type="button"
+          id="cancelInfoSubmit"
+        >
+          Cancel
+        </button>
+        <button onclick="accumulateValues()" type="button" id="infoSubmit">
+          Submit
+        </button>
+      </div>
+    </dialog>
+
+    <!-- This is the second dialog that appears when the add button is clicked  -->
+    <dialog id="addNewIncomeSourceDialog">
+      <h1 style="display: block; text-align: center; color: #EEEEEE">
+        Add new Source of Income
+      </h1>
+      <div class="formWrapper">
+        <form>
+          <label for="newIncomeName">Enter other income source</label><br />
+          <input type="text" name="newIncomeName" id="newIncomeLabel" /><br />
+
+          <label for="newIncomeAmount">Enter amount from this source</label
+          ><br />
+          <input
+          inputmode="numeric"
+            type="number"
+            name="newIncomeAmount"
+            id="newIncomeAmount"
+          /><br />
+        </form>
+      </div>
+
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+        "
+      >
+        <button
+          onclick="addIncomeToList(),  addNewIncomeSourceDialog.close() "
+          type="button"
+          id="addOtherIncomeSource"
+        >
+          Add
+        </button>
+      </div>
+    </dialog>
 
 
-</body>
+    <!-- The main section where the dashboard is contained -->
+    <main id="main-section" style="display: none">
+      <nav><h1>BUDGET DETAILS</h1></nav>
+
+      <div id="welcomeMessage"></div><br>
+      <div class="fundCardWrapper">
+        <div class="fundCard">
+          <h2>Total Income</h2>
+          <div class="totalFundArea"></div>
+        </div>
+      </div>
+
+      <div class="dashboard-mainFlex-container">
+        <div class="dashboard-left">
+          <div class="dashBoard-leftSpace"></div>
+
+          <div class="expense-heading">Expense List</div>
+          <br />
+
+          <form class="expenseForm">
+            <label for="Rent" class="expenseFormLabel">Rent</label><br />
+            <p class="rent-advice">Enter your Rent budget</p><br>
+            <input type="number" id="rentExpense" class="ExpenseValue" inputmode="numeric" placeholder="Enter amount..." /><br>
+          </form>
+          <div
+            style="
+              display: flex;
+              justify-content: start;
+              align-items: center;
+              gap: 10px;
+            "
+          >
+            <button type="button" id="addExpense" disabled>Add</button>
+            
+            <button type="button" id="calculate" >Calculate</button>
+
+
+          </div>
+        </div>
+
+        <dialog id="addExpenseDialog">
+          <h1 style="display: block; text-align: center; color: #EEEEEE;">Add new possible Expense</h1>
+          <div class="formWrapper">
+              <form class="newExpenseForm">
+                 <label for="newExpense" id="newExpenseName">New expense</label><br>
+                 <input type="text" id="newExpenseNameInput" ><br>
+
+                 <div
+                 style="
+                   display: flex;
+                   justify-content: center;
+                   align-items: center;
+                   gap: 10px;
+                 "
+               >
+                  <button type="button" id="cancelNewExpenseDialog">Cancel</button>
+                 <button type="button" id="addNewExpenseName">Add</button>
+               </div>
+               </form>
+
+              
+          </div>
+
+  
+       
+      </dialog>
+        
+        
+        
+        
+        <div class="dashboard-right">
+         
+          <br>
+          <!-- Container to display chart and error message if expense is more than funds -->
+          <div class="chart-container">
+            <canvas class="my-chart"></canvas>
+          </div>
+
+          <div class="netIncomeMessage"></div><br><br>
+
+        </div>
+      </div>
+    </main>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./script.js"></script>
+  </body>
 </html>
