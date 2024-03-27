@@ -13,6 +13,7 @@ let infoSubmit = document.querySelector("#infoSubmit");
 
 
 
+
 //Fuction that shows the Start dialog on click of the startBtn management button
 function showStartDialog() {
     startDialog.showModal();
