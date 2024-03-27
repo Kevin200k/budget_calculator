@@ -39,7 +39,19 @@ let newIncomeAmount = document.querySelector("#newIncomeAmount");
 //i took the add button in the second dialog in a variable, this button is responsible for appending the income source name, and the amount gotten from that income source
 let addOtherIncomeSource = document.querySelector("#addOtherIncomeSource");
 
+addOtherIncomeSource.disabled = true;
 
+function checknewIncomeInputs(){
+    if(newIncomeName.value.trim().length > 0 && newIncomeAmount.value.trim().length > 0){
+        addOtherIncomeSource.disabled = false;
+    }
+    else{
+        addOtherIncomeSource.disabled = true;
+    }
+}
+
+newIncomeName.addEventListener("input", checknewIncomeInputs);
+newIncomeAmount.addEventListener("input", checknewIncomeInputs);
 // this is the form inside of the first dialog, i took it seperatly, so i can append the new values inside the form, else it will be appended under the submit and cancel buttons
 let startDialogForm = document.querySelector('#startDialogForm');
 
@@ -316,6 +328,10 @@ function calculation(){
 }
 
 calculate.addEventListener("click", calculation);
+
+let editTotalIncomeBtn = document.querySelector('#editTotalIncomeBtn');
+
+editTotalIncomeBtn.addEventListener("click", showStartDialog)
 
 
 

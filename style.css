@@ -166,6 +166,11 @@ body{
     margin-top: 10px;
     font-weight: bolder;
     font-size: 15px;
+    cursor: pointer;
+}
+#addOtherIncomeSource:disabled{
+    background-color: hsl(183, 26%, 80%);
+    color: hsl(216, 18%, 50%);
 }
 
 /* Beginning of User Dashboard */
@@ -428,3 +433,13 @@ nav{
     margin-top: 40px;
     padding-left: 60px;
 }
+
+.edit-Income-Button-Wrapper{
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
