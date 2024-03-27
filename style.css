@@ -17,7 +17,7 @@ body{
 }
 #startBtn{
     margin-top: 50px;
-    background: linear-gradient(150deg, #191d45, #306EFF);
+    background-color: #306EFF;
     border: none;
     outline: solid 4px #306EFF ;
     color: #EEEEEE;
@@ -32,7 +32,6 @@ body{
     outline-offset:  6px;
     transition: ease-out .3s;
 }
-
 .formWrapper{
     width: 100%;
     height: fit-content;
@@ -41,7 +40,6 @@ body{
     justify-content: center;
     align-items: center;
 }
-
 #startDialog{
     width: 500px;
     position: absolute;
@@ -51,46 +49,28 @@ body{
     bottom: 0;
     margin: auto;
     padding: 20px;
-    background-color: black;
+    background-color: #36393e;
     border-radius: 24px;
-    /* border: none; */
-    border: 1px solid white;
+    border: none;
 }
 #startDialog::backdrop{
-    backdrop-filter: blur(7px);
-}
-#startDialog input{
-    width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #fff;
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid #fff;
-    outline: none;
-    background: transparent;
+    backdrop-filter: blur(3px);
 }
 
 #startDialogLabel{
     margin-top: 10px !important;
     color: #EEEEEE;
     font-weight: bolder;
-    top: 0;
-    left: 0;
-    padding: 10px, 0;
-    font-size: 16px;
-    pointer-events: none;
-    transition: 0.5s;
+    
 }
-
-#startDialog form:focus ~ label,
-#startDialog form:valid ~ label{
-    top: -20px;
-    left: 0;
-    color: #03e9f4;
-    font-size: 12px;
+#startDialog input{
+    width: 400px;
+    height: 30px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    padding: 8px;
 }
-
 .fname-warn{
     color: #C83F49;
 }
@@ -107,9 +87,8 @@ body{
     margin: auto;
 
 }
-
 #addIncomeSource{
-    background: linear-gradient(150deg, #191d45, #306EFF);
+    background-color: #306EFF ;
     border: none;
     outline: none;
     color: #EEEEEE;
@@ -124,7 +103,7 @@ body{
 }
 
 #cancelInfoSubmit{
-    background: linear-gradient(150deg, #510207, #C83F49);
+    background-color: #C83F49;
     border: none;
     outline: none;
     color: #EEEEEE;
@@ -137,9 +116,8 @@ body{
     font-size: 15px;
     cursor: pointer;
 }
-
 #infoSubmit{
-    background: linear-gradient(150deg, #191d45, #306EFF);
+    background-color: #306EFF ;
     border: none;
     outline: none;
     color: #EEEEEE;
@@ -152,13 +130,11 @@ body{
     font-size: 15px;
     cursor: pointer;
 }
-
 #addNewIncomeSourceDialog{
     padding: 20px;
-    background-color: black;
+    background-color: #36393e;
     border-radius: 24px;
-    /* border: none; */
-    border: 1px solid white;
+    border: none;
 }
 
 #addNewIncomeSourceDialog label{
@@ -168,23 +144,18 @@ body{
 }
 
 #addNewIncomeSourceDialog input{
-    width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #fff;
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid #fff;
+    width: 400px;
+    height: 30px;
+    border-radius: 8px;
     outline: none;
-    background: transparent;
+    border: none;
+    padding: 8px;
 }
-
 #addNewIncomeSourceDialog::backdrop{
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(3px);
 }
-
 #addOtherIncomeSource{
-    background: linear-gradient(150deg, #191d45, #306EFF);
+    background-color: #306EFF;
     border: none;
     outline: none;
     color: #EEEEEE;
@@ -195,41 +166,36 @@ body{
     margin-top: 10px;
     font-weight: bolder;
     font-size: 15px;
+    cursor: pointer;
 }
+#addOtherIncomeSource:disabled{
+    background-color: hsl(183, 26%, 80%);
+    color: hsl(216, 18%, 50%);
+}
+
+/* Beginning of User Dashboard */
+
+/* The nav bar */
 nav{
-    display: flex;
     color: #306EFF;
     text-align: center;
     font-size: xx-large;
     font-weight: bolder;
     background-color: #0C090A;
-    padding: 15px;
 }
+
+/* This is the field that welcomes the user to the Dashboard... Welcome Username */
 #welcomeMessage{
     color: #EEEEEE;
     font-weight: 400;
     font-size: 50px;
-    padding-left: 15px;
+    padding-left: 40px;
     font-family: "Ultra", serif;
     margin-top: 20px;
 }
-.dashboard-mainFlex-container{
-    width: 100%;
-    height: 80vh;
-    /* border: solid 3px white; */
-    display: flex;
-}
-.dashboard-right{
-    width: 50%;
-    height: 100%;
-    /* border: solid 3px white; */
-}
-/* .dashboard-left{
-    width: 50%;
-    height: 100%;
-    border: solid 3px white;  
-} */
 
+
+/* This container is the div containing the funcdCard... i used this to place the fund card at the left side of the document, using flex */
 .fundCardWrapper{
     width: 100%;
     height: fit-content;
@@ -237,34 +203,60 @@ nav{
     justify-content: start;
     align-items: center;
 }
+/* This is the fundCard itself, This card displays your funds */
 .fundCard{
     width: 400px;
     height: 150px;
-    /* outline: white solid 2px; */
-    /* margin-right: 40px; */
     border-radius: 10px;
     background-color: #306EFF;
-    padding-left: 15px;
+    padding: 15px;
     margin-left: 50px;
 }
+/* This is the heading that says "Total Income", inside the fundCard */
 .fundCard h2{
     color: #EEEEEE;
     font-size: 30px;
     font-weight: bolder;
-    /* margin-top: 20px; */
 }
+
+/* I made an empty div, right under the total Income heading. This is where your total Income value, is been returned after submitting on the form */
 .totalFundArea{
     width: 100%;
     height: fit-content;
     padding: 10px;
-    /* outline: solid white 2px; */
     font-size: 40px;
     margin-top: 5px;
     color: #EEEEEE;
     font-weight: bolder;
 }
+/* This container contains both the expense form section, and the section containing the chart displayed after calculating your expense */
+.dashboard-mainFlex-container{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+}
+
+/* This is simply the right side of the .dashboard-mainFlex-container stated above. it contains the chart displayed after calculating the expenses */
+.dashboard-right{
+    width: 50%;
+    height: 100%;
+}
+.dashboard-left{
+    width: 50%;
+    height: 100%;
+    position: relative !important;
+}
+
+/* I made an empty div to place right above the expense form, to levele it with the chart...i think💀 */
+.dashBoard-leftSpace{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* This is the heading for the expense form that the user fills... it says "Expense List" */
 .expense-heading{
-    /* outline: white solid 2px; */
     color: #EEEEEE;
     font-size: 40px;
     text-align: start;
@@ -272,31 +264,27 @@ nav{
     padding-left: 30px;
     border-bottom: solid 3px #31363F;
 }
-.dashBoard-leftSpace{
-    width: 100%;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* outline: white solid 2px; */
-}
+
+/* This is the form, That contains the expense label, and it's inputs */
 .expenseForm{
     width: 100%;
     height: fit-content;
-    /* outline: solid red 2px; */
     padding-left: 30px;
-    /* overflow-y: scroll; */
 }
+/* This is/ These are the labels for the expense Form... e.g: Rent */
 .expenseFormLabel{
     margin-top: 10px !important;
     color: #306EFF;
     font-weight: bolder;
     font-size: 30px;
 }
+/* This the a div i made to tell the user to input the value of rent cost...it says "Enter your Rent budget" */
 .rent-advice{
     color: #EEEEEE;
     font-size: 13px;
 }
+
+/* This is/ These are the inputs for the expense Form...  */
 .expenseForm input{
     width: 400px;
     height: 30px;
@@ -305,9 +293,13 @@ nav{
     border: none;
     padding: 8px;
 }
+
+/* This is the design of the inputs, when they are disabled */
 .expenseForm input:disabled{
   color: #EEEEEE;
 }
+
+/* This is the add button seen beneath the expense form, its used to add a new possible expense, other than rent */
 #addExpense{
     background-color: #306EFF;
     border: none;
@@ -323,16 +315,16 @@ nav{
     cursor: pointer;
     margin-left: 35px;
 }
+
+/* This is the design of the add expense button when disabled */
 #addExpense:disabled{
     background-color: hsl(183, 26%, 80%);
     color: hsl(216, 18%, 50%);
 }
-.dashboard-left{
-    width: 50%;
-    height: 100%;
-    /* border: solid 3px white; */
-    position: relative !important;
-}
+
+
+/* This the dialog that appears when you click the add new expense button, so the user can type in the name of the new possible expense they want to add */
+
 #addExpenseDialog{
     position: absolute;
     top: 50%;
@@ -343,6 +335,8 @@ nav{
     border-radius: 24px;
     border: none;
 }
+
+/* This is the calculate button seen beside the add button beneath the expense form...its the button that does the calculations, once it is clicked */
 #calculate{
     background-color: #306EFF;
     border: none;
@@ -358,14 +352,19 @@ nav{
     cursor: pointer;
     margin-left: 35px;
 }
+/* The design of the background while the dialog is active */
 #addExpenseDialog::backdrop{
     backdrop-filter: blur(3px);
 }
+
+/* This is the label for the name of the new expense in the addnew expense dialog...it says "New Expense" */
 #newExpenseName{
     margin-top: 10px !important;
     color: #EEEEEE;
     font-weight: bolder;
 }
+
+/* This is the input for the name of the new expense in the addnew expense dialog, where the user types in the name of the possible new expense */
 .newExpenseForm input{
     width: 400px;
     height: 30px;
@@ -375,6 +374,8 @@ nav{
     padding: 8px;
 }
 
+
+/* This is the add button in the add new expense dialogue... this enables the user to actually append the new expense to the main expense form  */
 #addNewExpenseName{
     background-color: #306EFF;
     border: none;
@@ -391,6 +392,7 @@ nav{
     margin-left: 35px;
 }
 
+/*This the cancel button on the add new expense dialog, enables users to close the dialog if a new expense is not needed  */
 #cancelNewExpenseDialog{
     background-color: #C83F49;
     border: none;
@@ -406,6 +408,7 @@ nav{
     cursor: pointer;
 }
 
+/*This serves as wrapper for the chart, i added this so i can place the chart at the center, using flex...   */
 .chart-container{
     width: 100%;
     height: 350px;
@@ -414,12 +417,15 @@ nav{
     align-items: center;
     margin-top: 10px;
 }
+
+/* This is the box, or container where the chart appears, or is rendered after calculations */
 .my-chart{
     width: 400px;
     height: 100%;
     margin-top: 20px;
 }
 
+/* This the container that displays the users net income after calculations */
 .netIncomeMessage{
     color: #EEEEEE;
     font-weight: bold;
@@ -427,3 +433,13 @@ nav{
     margin-top: 40px;
     padding-left: 60px;
 }
+
+.edit-Income-Button-Wrapper{
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
