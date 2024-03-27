@@ -41,11 +41,11 @@ let addOtherIncomeSource = document.querySelector("#addOtherIncomeSource");
 
 addOtherIncomeSource.disabled = true;
 
-function checknewIncomeInputs(){
-    if(newIncomeName.value.trim().length > 0 && newIncomeAmount.value.trim().length > 0){
+function checknewIncomeInputs() {
+    if (newIncomeName.value.trim().length > 0 && newIncomeAmount.value.trim().length > 0) {
         addOtherIncomeSource.disabled = false;
     }
-    else{
+    else {
         addOtherIncomeSource.disabled = true;
     }
 }
@@ -115,30 +115,30 @@ let submitCount = 0;
 
 
 // function that increases the value of submitCount by 1 each time the submit button on the first dialog box is clicked.
-function submitIncrement(){
+function submitIncrement() {
     submitCount++;
 }
 
 
 // This is the function that is called when the submitCount values is > 0, and it listens on input to see if the empty fields are filled, and clears the error messages
-function formRetry(){
-    if(submitCount > 0){
-        firstName.addEventListener("input", function(){
+function formRetry() {
+    if (submitCount > 0) {
+        firstName.addEventListener("input", function () {
             if (firstName.value.trim().length > 0) {
                 firstNameWarning.textContent = '';
             }
-            else{
+            else {
                 firstNameWarning.textContent = 'This field is required';
-                
+
             }
         });
-        lastName.addEventListener("input", function(){
+        lastName.addEventListener("input", function () {
             if (lastName.value.trim().length > 0) {
                 lastNameWarning.textContent = '';
             }
-            else{
+            else {
                 lastNameWarning.textContent = 'This field is required';
-                
+
             }
         })
     }
@@ -172,7 +172,7 @@ infoSubmit.addEventListener("click", function () {
         main.style.display = 'block';
         totalFundArea.innerText = `$${totalFunds}.00`
     }
-        
+
     //Calling the form retry function, if the error comes on 
     formRetry();
 
@@ -199,12 +199,12 @@ let rent = document.querySelector('#rentExpense');
 // Below the rent input field, you can see an add button that givees you the ability to add other possible expenses for the month, but it is disabled by default
 // This function checks if the rent input is filled... if it's filled, the add button is enabled.else it stays disabled
 
-rent.addEventListener('input', function() {
+rent.addEventListener('input', function () {
 
-    if(rent.value.trim().length > 0){
+    if (rent.value.trim().length > 0) {
         addExpensebtn.disabled = false;
     }
-    else{
+    else {
         addExpensebtn.disabled = true;
     }
 });
@@ -224,7 +224,7 @@ function addExpenseToList() {
     newExpenseInput.placeholder = 'Enter amount...';
     newExpenselabel.textContent = `${labelDisplay}`
     console.log(newExpenseNameInput.value)
-    
+
 
     let breakTag1 = document.createElement('br');
     let breakTag2 = document.createElement('br');
@@ -267,14 +267,14 @@ let netIncomeMessage = document.querySelector(".netIncomeMessage");
 
 
 
-function calculation(){
+function calculation() {
     let totalExpense = document.querySelectorAll(".ExpenseValue");
     totalExpenseValue = 0;
     for (let i = 0; i < totalExpense.length; i++) {
         totalExpenseValue += +(totalExpense[i].value);
     }
 
-    totalExpense.forEach(function(field){
+    totalExpense.forEach(function (field) {
         field.disabled = true;
     })
     netIncome = totalFunds - totalExpenseValue;
@@ -291,17 +291,17 @@ function calculation(){
         labels: [],
         data: [],
     }
-    
-    expenseNames.forEach(function(name){
+
+    expenseNames.forEach(function (name) {
         chartData.labels.push(name.textContent);
     });
-   
-    ExpenseValues.forEach(function(value){
+
+    ExpenseValues.forEach(function (value) {
         chartData.data.push(value.value);
     });
 
     const myChart = document.querySelector(".my-chart");
-    
+
     new Chart(myChart, {
         type: "doughnut",
         data: {
@@ -320,10 +320,12 @@ function calculation(){
                 legend: {
                     // display: false,
                     gap: 10,
+                    onClick: function (e) {
+                        e.stopPropagation();
+                    }
                 }
             }
-        }
-    })
+        }})
 
 }
 
