@@ -5,6 +5,7 @@
     text-decoration: none;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+    outline: solid red 2px;
 }
 body{
     background-color: #0C090A;
@@ -352,6 +353,10 @@ nav{
     cursor: pointer;
     margin-left: 35px;
 }
+#calculate:disabled{
+    background-color: hsl(183, 26%, 80%);
+    color: hsl(216, 18%, 50%);
+}
 /* The design of the background while the dialog is active */
 #addExpenseDialog::backdrop{
     backdrop-filter: blur(3px);
@@ -390,6 +395,10 @@ nav{
     font-size: 15px;
     cursor: pointer;
     margin-left: 35px;
+}
+#addNewExpenseName:disabled{
+    background-color: hsl(183, 26%, 80%);
+    color: hsl(216, 18%, 50%);
 }
 
 /*This the cancel button on the add new expense dialog, enables users to close the dialog if a new expense is not needed  */

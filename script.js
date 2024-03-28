@@ -194,6 +194,18 @@ let newExpenseName = document.querySelector('#newExpenseName');
 let newExpenseNameInput = document.querySelector('#newExpenseNameInput');
 let rent = document.querySelector('#rentExpense');
 
+addNewExpenseName.disabled = true;
+function checkexpenseNameInput(){
+    if (newExpenseNameInput.value.trim().length > 0) {
+        addNewExpenseName.disabled = false;
+    }
+    else {
+        addNewExpenseName.disabled = true;
+    }
+}
+
+newExpenseNameInput.addEventListener("input", checkexpenseNameInput);
+
 
 // Now if you check the application, You can see that rent field is the only one available by default. because it is assumed that the user has to be paying rent. if not, you could input 0.
 // Below the rent input field, you can see an add button that givees you the ability to add other possible expenses for the month, but it is disabled by default
@@ -265,9 +277,29 @@ let totalExpenseValue = 0;
 let netIncome = 0;
 let netIncomeMessage = document.querySelector(".netIncomeMessage");
 
+calculate.disabled = true;
+
+let eachExpenseValue = document.querySelectorAll(".ExpenseValue");
+  function checkeachExpenseValue(){
+    eachExpenseValue.forEach(function(expenseInput){
+        if(expenseInput.value.trim().length > 0){
+            calculate.disabled = false;
+        }
+        else{
+            calculate.disabled = true;
+        }
+    })
+  }
+
+  eachExpenseValue.forEach(function(expenseInput){
+      expenseInput.addEventListener("input", checkeachExpenseValue);
+  })
 
 
 function calculation() {
+
+    
+
     let totalExpense = document.querySelectorAll(".ExpenseValue");
     totalExpenseValue = 0;
     for (let i = 0; i < totalExpense.length; i++) {
