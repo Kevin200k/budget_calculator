@@ -1,7 +1,8 @@
+:root {
+  --expense-form-input: 100%;
+}
 /* tablet screens */
 @media only screen and (max-width: 840px) {
-  
-
   #startBtn {
     width: fit-content;
     height: fit-content;
@@ -62,7 +63,6 @@
   .dashboard-right {
     width: 100%;
     position: static;
-   
   }
   .dashboard-left {
     width: 100%;
@@ -73,47 +73,99 @@
   }
 
   .fundCard {
-    margin-left: 0px;
+    margin-left: 30px;
   }
 
   .expense-heading {
     font-size: 35px;
   }
-  .expenseForm input{
+  .expenseForm input {
     width: 300px;
-  
-}
-#addExpenseDialog h1{
+  }
+  .buttonContainer {
+    width: 300px;
+  }
+  #addExpenseDialog h1 {
     font-size: x-large;
-}
-#addExpenseDialog{
+  }
+  #addExpenseDialog {
     width: 300px;
     left: 50%;
-   
-}
-#newExpenseNameInput{
+  }
+  #newExpenseNameInput {
     width: 250px;
-}
-.netIncomeMessage{
-   text-align: center;
-   padding-left: 0px;
-}
+  }
+  .netIncomeMessage {
+    text-align: center;
+    padding-left: 0px;
+  }
 }
 
 /* Phone screens */
 @media only screen and (max-width: 600px) {
- 
-
-  .intro-header{
+  .intro-header {
     font-size: 40px;
-
-    
-}
-#welcomeMessage {
+  }
+  #welcomeMessage {
     font-size: 30px;
   }
 
-  .fundCardWrapper {
-    padding: 15px;
+  .fundCard {
+    margin-left: 30px;
+    width: 70% !important;
   }
 }
+
+@media only screen and (max-width: 1130px) {
+  #welcomeMessage {
+    text-align: center;
+  }
+  .fundCard {
+    width: 60%;
+  }
+  .fundCardWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .dashboard-mainFlex-container {
+    flex-direction: column;
+    height: fit-content;
+  }
+  .dashboard-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .dashboard-left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .expense-heading {
+    text-align: center;
+  }
+  .expenseForm {
+    width: 60%;
+  }
+}
+
+
+.expenseForm input{
+  width: var(--expense-form-input);
+}
+  .buttonContainer{
+    width: fit-content;
+    place-items: center;
+  }
+
+  #calculate, #addExpense{
+    width: 90px;
+  }
+
+  

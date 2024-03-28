@@ -349,7 +349,7 @@ nav h1{
     border: none;
     outline: none;
     color: #EEEEEE;
-    width: 90px;
+    /* width: 90px; */
     height: fit-content;
     padding: 10px;
     border-radius: 5px;
@@ -357,9 +357,15 @@ nav h1{
     font-weight: bolder;
     font-size: 15px;
     cursor: pointer;
-    margin-left: 30px;
    
 }
+.buttonContainer{
+    width: 400px !important; 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-left: 30px;
+  }
 
 /* This is the design of the add expense button when disabled */
 #addExpense:disabled{
@@ -386,7 +392,7 @@ nav h1{
     border: none;
     outline: none;
     color: #EEEEEE;
-    width: 90px;
+    /* width: 90px; */
     height: fit-content;
     padding: 10px;
     border-radius: 5px;
