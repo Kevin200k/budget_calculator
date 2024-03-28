@@ -39,19 +39,7 @@ let newIncomeAmount = document.querySelector("#newIncomeAmount");
 //i took the add button in the second dialog in a variable, this button is responsible for appending the income source name, and the amount gotten from that income source
 let addOtherIncomeSource = document.querySelector("#addOtherIncomeSource");
 
-addOtherIncomeSource.disabled = true;
 
-function checknewIncomeInputs() {
-    if (newIncomeName.value.trim().length > 0 && newIncomeAmount.value.trim().length > 0) {
-        addOtherIncomeSource.disabled = false;
-    }
-    else {
-        addOtherIncomeSource.disabled = true;
-    }
-}
-
-newIncomeName.addEventListener("input", checknewIncomeInputs);
-newIncomeAmount.addEventListener("input", checknewIncomeInputs);
 // this is the form inside of the first dialog, i took it seperatly, so i can append the new values inside the form, else it will be appended under the submit and cancel buttons
 let startDialogForm = document.querySelector('#startDialogForm');
 
@@ -115,30 +103,30 @@ let submitCount = 0;
 
 
 // function that increases the value of submitCount by 1 each time the submit button on the first dialog box is clicked.
-function submitIncrement() {
+function submitIncrement(){
     submitCount++;
 }
 
 
 // This is the function that is called when the submitCount values is > 0, and it listens on input to see if the empty fields are filled, and clears the error messages
-function formRetry() {
-    if (submitCount > 0) {
-        firstName.addEventListener("input", function () {
+function formRetry(){
+    if(submitCount > 0){
+        firstName.addEventListener("input", function(){
             if (firstName.value.trim().length > 0) {
                 firstNameWarning.textContent = '';
             }
-            else {
+            else{
                 firstNameWarning.textContent = 'This field is required';
-
+                
             }
         });
-        lastName.addEventListener("input", function () {
+        lastName.addEventListener("input", function(){
             if (lastName.value.trim().length > 0) {
                 lastNameWarning.textContent = '';
             }
-            else {
+            else{
                 lastNameWarning.textContent = 'This field is required';
-
+                
             }
         })
     }
@@ -165,14 +153,14 @@ infoSubmit.addEventListener("click", function () {
         lastNameWarning.textContent = '';
         let rawName = firstName.value.toLowerCase();
         let welcomeName = rawName.charAt(0).toUpperCase() + rawName.slice(1);
-        welcomeMessage.textContent = `Welcome ${welcomeName},`;
+        welcomeMessage.textContent = `Hello, ${welcomeName}`;
         startDialog.close();
         introHeader.style.display = 'none';
         startBtn.style.display = 'none';
         main.style.display = 'block';
         totalFundArea.innerText = `$${totalFunds}.00`
     }
-
+        
     //Calling the form retry function, if the error comes on 
     formRetry();
 
@@ -194,29 +182,17 @@ let newExpenseName = document.querySelector('#newExpenseName');
 let newExpenseNameInput = document.querySelector('#newExpenseNameInput');
 let rent = document.querySelector('#rentExpense');
 
-addNewExpenseName.disabled = true;
-function checkexpenseNameInput(){
-    if (newExpenseNameInput.value.trim().length > 0) {
-        addNewExpenseName.disabled = false;
-    }
-    else {
-        addNewExpenseName.disabled = true;
-    }
-}
-
-newExpenseNameInput.addEventListener("input", checkexpenseNameInput);
-
 
 // Now if you check the application, You can see that rent field is the only one available by default. because it is assumed that the user has to be paying rent. if not, you could input 0.
 // Below the rent input field, you can see an add button that givees you the ability to add other possible expenses for the month, but it is disabled by default
 // This function checks if the rent input is filled... if it's filled, the add button is enabled.else it stays disabled
 
-rent.addEventListener('input', function () {
+rent.addEventListener('input', function() {
 
-    if (rent.value.trim().length > 0) {
+    if(rent.value.trim().length > 0){
         addExpensebtn.disabled = false;
     }
-    else {
+    else{
         addExpensebtn.disabled = true;
     }
 });
@@ -236,7 +212,7 @@ function addExpenseToList() {
     newExpenseInput.placeholder = 'Enter amount...';
     newExpenselabel.textContent = `${labelDisplay}`
     console.log(newExpenseNameInput.value)
-
+    
 
     let breakTag1 = document.createElement('br');
     let breakTag2 = document.createElement('br');
@@ -277,36 +253,16 @@ let totalExpenseValue = 0;
 let netIncome = 0;
 let netIncomeMessage = document.querySelector(".netIncomeMessage");
 
-calculate.disabled = true;
-
-let eachExpenseValue = document.querySelectorAll(".ExpenseValue");
-  function checkeachExpenseValue(){
-    eachExpenseValue.forEach(function(expenseInput){
-        if(expenseInput.value.trim().length > 0){
-            calculate.disabled = false;
-        }
-        else{
-            calculate.disabled = true;
-        }
-    })
-  }
-
-  eachExpenseValue.forEach(function(expenseInput){
-      expenseInput.addEventListener("input", checkeachExpenseValue);
-  })
 
 
-function calculation() {
-
-    
-
+function calculation(){
     let totalExpense = document.querySelectorAll(".ExpenseValue");
     totalExpenseValue = 0;
     for (let i = 0; i < totalExpense.length; i++) {
         totalExpenseValue += +(totalExpense[i].value);
     }
 
-    totalExpense.forEach(function (field) {
+    totalExpense.forEach(function(field){
         field.disabled = true;
     })
     netIncome = totalFunds - totalExpenseValue;
@@ -323,24 +279,55 @@ function calculation() {
         labels: [],
         data: [],
     }
-
-    expenseNames.forEach(function (name) {
+    
+    expenseNames.forEach(function(name){
         chartData.labels.push(name.textContent);
     });
-
-    ExpenseValues.forEach(function (value) {
+   
+    ExpenseValues.forEach(function(value){
         chartData.data.push(value.value);
     });
 
     const myChart = document.querySelector(".my-chart");
-
+    
     new Chart(myChart, {
-        type: "doughnut",
+        type: "bar",
         data: {
             labels: chartData.labels,
             datasets: [{
                 label: "Expense",
                 data: chartData.data,
+                backgroundColor: [
+                    'rgba(52, 73, 94, 0.5)',
+                    'rgba(22, 160, 133, 0.5)',
+                    'rgba(39, 174, 96, 0.5)',
+                    'rgba(41, 128, 185, 0.5)',
+                    'rgba(142, 68, 173, 0.5)',
+                    'rgba(44, 62, 80, 0.5)',
+                    'rgba(241, 196, 15, 0.5)',
+                    'rgba(230, 126, 34, 0.5)',
+                    'rgba(231, 76, 60, 0.5)',
+                    'rgba(236, 240, 241, 0.5)',
+                    'rgba(149, 165, 166, 0.5)',
+                    'rgba(127, 140, 141, 0.5)',
+                    'rgba(189, 195, 199, 0.5)'
+                  ],
+                  borderColor: [
+                    'rgba(52, 73, 94, 1)',
+                    'rgba(22, 160, 133, 1)',
+                    'rgba(39, 174, 96, 1)',
+                    'rgba(41, 128, 185, 1)',
+                    'rgba(142, 68, 173, 1)',
+                    'rgba(44, 62, 80, 1)',
+                    'rgba(241, 196, 15, 1)',
+                    'rgba(230, 126, 34, 1)',
+                    'rgba(231, 76, 60, 1)',
+                    'rgba(236, 240, 241, 1)',
+                    'rgba(149, 165, 166, 1)',
+                    'rgba(127, 140, 141, 1)',
+                    'rgba(189, 195, 199, 1)'
+                  ],
+                  borderWidth: 1,
             },
             ],
         },
@@ -350,22 +337,21 @@ function calculation() {
             hoverBorderWidth: 0,
             plugins: {
                 legend: {
-                    // display: false,
+                    position: "top",
+                    display: false,
                     gap: 10,
-                    onClick: function (e) {
-                        e.stopPropagation();
-                    }
+                    labels: {
+                        boxWidth: 20,
+                        padding: 20
+                      }
                 }
             }
-        }})
+        }
+    })
 
 }
 
 calculate.addEventListener("click", calculation);
-
-let editTotalIncomeBtn = document.querySelector('#editTotalIncomeBtn');
-
-editTotalIncomeBtn.addEventListener("click", showStartDialog)
 
 
 
