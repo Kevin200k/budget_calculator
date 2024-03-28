@@ -335,7 +335,7 @@ function calculation() {
     const myChart = document.querySelector(".my-chart");
 
     new Chart(myChart, {
-        type: "doughnut",
+        type: "bar",
         data: {
             labels: chartData.labels,
             datasets: [{
@@ -350,7 +350,7 @@ function calculation() {
             hoverBorderWidth: 0,
             plugins: {
                 legend: {
-                    // display: false,
+                    display: false,
                     gap: 10,
                     onClick: function (e) {
                         e.stopPropagation();
