@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Budget Management System</title>
     <!-- Link to css file -->
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./mystyle.css" />
     <!-- Link to responsive css file -->
     <link rel="stylesheet" href="./responsiveness.css">
 
@@ -24,6 +24,12 @@
       href="https://fonts.googleapis.com/css2?family=Ultra&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Link to the Zenmanru Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
   </head>
   <body>
 
@@ -148,18 +154,21 @@
 
     <!-- The main section where the dashboard is contained -->
     <main id="main-section" style="display: none">
+    <!-- <main id="main-section"> -->
+      <!-- <div id = "logo_header"><img src="./Maestros_logo/maestros_text_logo.png" alt="Maestros Logo" id = "maestros_logo"></div> -->
       <nav><h1>BUDGET DETAILS</h1></nav>
 
-      <div id="welcomeMessage"></div><br>
-      <div class="fundCardWrapper">
-        <div class="fundCard">
-          <h2>Total Income</h2>
-          <div class="totalFundArea"></div>
-        </div>
-      </div>
 
+      <div id="welcomeMessage"></div>
+      
       <div class="dashboard-mainFlex-container">
         <div class="dashboard-left">
+          <div class="fundCardWrapper">
+            <div class="fundCard">
+              <h2>Total Income</h2>
+              <div class="totalFundArea"></div>
+            </div>
+          </div>
           <div class="dashBoard-leftSpace"></div>
 
           <div class="expense-heading">Expense List</div>
@@ -167,7 +176,7 @@
 
           <form class="expenseForm">
             <label for="Rent" class="expenseFormLabel">Rent</label><br />
-            <p class="rent-advice">Enter your Rent budget</p><br>
+            <!-- <p class="rent-advice">Enter your Rent budget</p><br> -->
             <input type="number" id="rentExpense" class="ExpenseValue" inputmode="numeric" placeholder="Enter amount..." /><br>
           </form>
           <div
@@ -178,9 +187,11 @@
               gap: 10px;
             "
           >
-            <button type="button" id="addExpense" disabled>Add</button>
-            
-            <button type="button" id="calculate" >Calculate</button>
+            <div class="buttonContainer">
+              <button type="button" id="addExpense" disabled>Add</button>
+              
+              <button type="button" id="calculate" >Calculate</button>
+            </div>
 
 
           </div>
@@ -217,8 +228,6 @@
         
         
         <div class="dashboard-right">
-         
-          <br>
           <!-- Container to display chart and error message if expense is more than funds -->
           <div class="chart-container">
             <canvas class="my-chart"></canvas>
