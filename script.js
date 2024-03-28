@@ -13,6 +13,7 @@ let infoSubmit = document.querySelector("#infoSubmit");
 
 
 
+
 //Fuction that shows the Start dialog on click of the startBtn management button
 function showStartDialog() {
     startDialog.showModal();
@@ -152,7 +153,7 @@ infoSubmit.addEventListener("click", function () {
         lastNameWarning.textContent = '';
         let rawName = firstName.value.toLowerCase();
         let welcomeName = rawName.charAt(0).toUpperCase() + rawName.slice(1);
-        welcomeMessage.textContent = `Welcome ${welcomeName},`;
+        welcomeMessage.textContent = `Hello, ${welcomeName}`;
         startDialog.close();
         introHeader.style.display = 'none';
         startBtn.style.display = 'none';
@@ -290,12 +291,43 @@ function calculation(){
     const myChart = document.querySelector(".my-chart");
     
     new Chart(myChart, {
-        type: "doughnut",
+        type: "bar",
         data: {
             labels: chartData.labels,
             datasets: [{
                 label: "Expense",
                 data: chartData.data,
+                backgroundColor: [
+                    'rgba(52, 73, 94, 0.5)',
+                    'rgba(22, 160, 133, 0.5)',
+                    'rgba(39, 174, 96, 0.5)',
+                    'rgba(41, 128, 185, 0.5)',
+                    'rgba(142, 68, 173, 0.5)',
+                    'rgba(44, 62, 80, 0.5)',
+                    'rgba(241, 196, 15, 0.5)',
+                    'rgba(230, 126, 34, 0.5)',
+                    'rgba(231, 76, 60, 0.5)',
+                    'rgba(236, 240, 241, 0.5)',
+                    'rgba(149, 165, 166, 0.5)',
+                    'rgba(127, 140, 141, 0.5)',
+                    'rgba(189, 195, 199, 0.5)'
+                  ],
+                  borderColor: [
+                    'rgba(52, 73, 94, 1)',
+                    'rgba(22, 160, 133, 1)',
+                    'rgba(39, 174, 96, 1)',
+                    'rgba(41, 128, 185, 1)',
+                    'rgba(142, 68, 173, 1)',
+                    'rgba(44, 62, 80, 1)',
+                    'rgba(241, 196, 15, 1)',
+                    'rgba(230, 126, 34, 1)',
+                    'rgba(231, 76, 60, 1)',
+                    'rgba(236, 240, 241, 1)',
+                    'rgba(149, 165, 166, 1)',
+                    'rgba(127, 140, 141, 1)',
+                    'rgba(189, 195, 199, 1)'
+                  ],
+                  borderWidth: 1,
             },
             ],
         },
@@ -305,8 +337,13 @@ function calculation(){
             hoverBorderWidth: 0,
             plugins: {
                 legend: {
-                    // display: false,
+                    position: "top",
+                    display: false,
                     gap: 10,
+                    labels: {
+                        boxWidth: 20,
+                        padding: 20
+                      }
                 }
             }
         }
